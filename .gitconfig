@@ -1,0 +1,42 @@
+[user]
+    # name = Buck Golemon
+    # email = buck@yelp.com
+[core]
+    # excludesfile = ~/.gitignore_global
+[color]
+    ui = auto
+[pack]
+    threads = 0
+    packSizeLimit = 64m
+[diff]
+    renamelimit = 0
+    tool = vimdiff
+[difftool]
+    prompt = false
+[difftool "vimdiff"]
+    cmd = vim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
+[merge]
+    # tool = diffconflicts
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+[mergetool "diffconflicts"]
+    # cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+    # trustExitCode = true
+    # keepBackup = false
+[push]
+    # default = current
+[advice]
+    # detachedHead = false
+[alias]
+    base = !git merge-base `git upstream` HEAD
+    diffbase = !sh -c 'git diff `git base` "$@"' -
+    lol = !git log --oneline --graph --decorate "$@"
+    fetch1 = !sh -c 'colorize git fetch "$0" "$1":refs/remotes/"$0"/"$1"'
+
+    vimdiff = difftool
+    dt = difftool
+    df = diff
+    mt = mergetool
+
+# vim:sts=4:sw=4:et:
