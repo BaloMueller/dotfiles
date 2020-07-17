@@ -31,7 +31,7 @@
 [alias]
     base = !git merge-base `git upstream` HEAD
     diffbase = !sh -c 'git diff `git base` "$@"' -
-    lol = !git log --oneline --graph --decorate "$@"
+    lol = !git log --oneline --pretty=format:'(%h %an) %s' --graph --decorate "$@"
     publish = !git pull --rebase && git push
     fetch1 = !sh -c 'colorize git fetch "$0" "$1":refs/remotes/"$0"/"$1"'
 
